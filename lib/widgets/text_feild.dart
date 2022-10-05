@@ -7,8 +7,14 @@ class InputName extends StatelessWidget {
   final String hideText;
   final String labelText;
   final SCallback onChange;
-  const InputName({Key? key, required this.onChange, required this.hideText,required this.labelText})
-      : super(key: key);
+  final TextEditingController NameFeMaleEditingControler;
+  const InputName({
+    Key? key,
+    required this.onChange,
+    required this.hideText,
+    required this.labelText,
+    required this.NameFeMaleEditingControler,
+  }) : super(key: key);
 
   _onChange(String s) {
     onChange(s);
@@ -22,19 +28,20 @@ class InputName extends StatelessWidget {
       // height: 80,
       child: Column(
         children: [
+          Text(labelText),
           TextField(
-            // controller: _NameFeMaleEditingControler,
+            controller: NameFeMaleEditingControler,
             onChanged: _onChange,
             style: TextStyle(fontSize: 15),
             decoration: InputDecoration(
                 hintText: hideText,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 contentPadding: EdgeInsets.all(10)),
           ),
           SizedBox(
             height: 5,
           ),
-          Text(labelText)
         ],
       ),
     ));

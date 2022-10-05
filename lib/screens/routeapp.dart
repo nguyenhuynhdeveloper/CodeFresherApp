@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fortune_telling/screens/bode_name.dart';
+import 'package:fortune_telling/screens/bode_name/bode_name.dart';
 import 'package:fortune_telling/screens/bode_face.dart';
 import 'package:fortune_telling/screens/confession.dart';
 import 'package:fortune_telling/screens/home.dart';
