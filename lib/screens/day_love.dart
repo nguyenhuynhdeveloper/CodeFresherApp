@@ -17,6 +17,7 @@ class DayLove extends StatefulWidget {
 }
 
 class _DayLoveState extends State<DayLove> {
+  String startDay = DateFormat('yyyy-MM-dd').format(DateTime.now());
   //show dialog calendar
   void _showDialogCalendar() {
     showModalBottomSheet<void>(
@@ -53,17 +54,7 @@ class _DayLoveState extends State<DayLove> {
                         label: 'Xong',
                         type: 'text',
                         colorText: Colors.white,
-                        onClick: () {
-                          // if (startDate.isEmpty) {
-                          //   Navigator.pop(context);
-                          // } else {
-                          //   Navigator.pop(context);
-                          //   _
-                          //       .read<TransactionCubit>()
-                          //       .changeChooseDateRangeFilter(
-                          //           startDate, endDate);
-                          // }
-                        }),
+                        onClick: () {}),
                   ],
                 ),
               ),
@@ -89,7 +80,9 @@ class _DayLoveState extends State<DayLove> {
           // ignore: lines_longer_than_80_chars
           ' ${DateFormat('dd/MM/yyyy').format(args.value.endDate ?? args.value.startDate)}';
       print('DATATA RANGE ${args.value}');
-      // startDate = DateFormat('dd/MM/yyyy').format(args.value.startDate);
+      setState(() {
+        startDay = DateFormat('dd-MM-yyyy').format(args.value.startDate);
+      });
       // endDate = DateFormat('dd/MM/yyyy').format(args.value.endDate ?? args.value.startDate);
     } else if (args.value is DateTime) {
       var _selectedDate = args.value.toString();
@@ -111,34 +104,52 @@ class _DayLoveState extends State<DayLove> {
       ),
       body: SafeArea(
         child: Container(
-            height: 800,
-            width: 100,
+            // height: 800,
+            // width: 100,
             child: Column(
-              children: [
-                SizedBox(
-                  height: 200,
-                ),
-                InkWell(
-                  onTap: () {
-                    this._showDialogCalendar();
-                  },
-                  child: Text('SHow Calendar'),
-                ),
-                ButtonTheme(
-                  height: 50,
-                  child: FlatButton(
-                      child: const Text(
-                        'Insert Transaction',
-                        style: TextStyle(fontSize: 18, fontFamily: 'Mulish'),
+          children: [
+            SizedBox(
+              height: 200,
+            ),
+            Text(
+              "Đi chơi ngày $startDay cẩn thận xe tông!!!",
+              style: TextStyle(fontSize: 15),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(100)),
+                    // color: Colors.amber,
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.blue,
+                        Colors.red,
+                      ],
+                    )),
+                child: FlatButton(
+                    child: const Text(
+                      'Chọn ngày đi chơi',
+                      style: TextStyle(
+                        fontSize: 18,
                       ),
-                      textColor: Colors.white,
-                      color: Colors.pinkAccent,
-                      onPressed: () {
-                        print("-----------");
-                      }),
-                ),
-              ],
-            )),
+                      textAlign: TextAlign.center,
+                    ),
+                    textColor: Colors.white,
+                    // color: Colors.pinkAccent,
+                    onPressed: () {
+                      this._showDialogCalendar();
+                    }),
+              ),
+            ),
+          ],
+        )),
       ),
     );
   }

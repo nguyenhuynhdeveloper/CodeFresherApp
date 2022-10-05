@@ -8,7 +8,7 @@ import 'add_custom_state.dart';
 
 //initialize cubit
 class AddCustomermBloc extends Cubit<AddCustomState> {
-  AddCustomermBloc() : super(AddCustomState(fullName: '', image: null));
+  AddCustomermBloc() : super(AddCustomState(fullName: ''));
 
   //when user choice take camera
   void onTakeCamera(dynamic imageXFile) {

@@ -241,9 +241,24 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink[300],
-        title: Text(widget.title!),
-      ),
+          backgroundColor: Colors.pink[300],
+          title: Text(widget.title!),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.add_alert),
+              tooltip: 'Show Snackbar',
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Bạn không có thông báo nào')));
+              },
+            ),
+            // IconButton(
+            //     icon: const Icon(Icons.navigate_next),
+            //     tooltip: 'Go to the next page',
+            //     onPressed: () {
+            //       Navigator.pop(context);
+            //     }),
+          ]),
       body: Center(
         child: !kIsWeb && defaultTargetPlatform == TargetPlatform.android
             ? FutureBuilder<void>(

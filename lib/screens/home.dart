@@ -6,9 +6,10 @@ import 'dart:math' as math;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fortune_telling/screens/take_photo/bloc/add_bloc.dart';
 import 'package:fortune_telling/screens/take_photo/take_photo_love.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 
 class HomeScreen extends StatelessWidget {
-  static const _actionTitles = ['Sheare App', 'Vote App', 'Infomation App'];
+  static const _actionTitles = ['Share App', 'Vote App', 'Infomation App'];
 
   const HomeScreen({Key? key}) : super(key: key);
 
