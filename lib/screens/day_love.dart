@@ -17,7 +17,8 @@ class DayLove extends StatefulWidget {
 }
 
 class _DayLoveState extends State<DayLove> {
-  String startDay = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  // String startDay = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  String startDay = "";
   //show dialog calendar
   void _showDialogCalendar() {
     showModalBottomSheet<void>(
@@ -112,7 +113,9 @@ class _DayLoveState extends State<DayLove> {
               height: 200,
             ),
             Text(
-              "Đi chơi ngày $startDay cẩn thận xe tông!!!",
+              startDay != ''
+                  ? "Đi chơi ngày $startDay cẩn thận xe tông!!!"
+                  : "",
               style: TextStyle(fontSize: 15),
             ),
             SizedBox(

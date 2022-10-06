@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                               );
                             }),
                           ),
-                          text: 'Chụp ảnh love',
+                          text: 'Chụp ảnh',
                         ),
                         SizedBox(
                           width: 50,

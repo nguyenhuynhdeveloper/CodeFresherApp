@@ -23,7 +23,7 @@ class _TakePhotoLoveState extends State<TakePhotoLove> {
       child: Scaffold(
           resizeToAvoidBottomInset: true,
           appBar: AppBar(
-            title: Text("Chụp ảnh cùng người yêu"),
+            title: Text("Chụp ảnh cùng"),
             backgroundColor: Colors.pink[400],
           ),
           body: Container(height: 200, child: TakePhoto())),
